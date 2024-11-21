@@ -6,11 +6,12 @@ import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
 import mountain1Img from "./parallax/mountain-1.svg";
 import sunImg from "./parallax/sun.svg";
-import sun2Img from "./parallax/12.png";
+import watch from "./parallax/watch.svg";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
 import starsImg from "./parallax/stars.svg";
+import { Button } from "@chakra-ui/react";
 
 function InfoPage() {
   const [background, setBackground] = useState(20);
@@ -24,7 +25,7 @@ function InfoPage() {
   const cloudsRight = useRef(null);
   const stars = useRef(null);
   const sun = useRef(null);
-  const sun2 = useRef(null);
+  const watchInfo = useRef(null);
   const copy = useRef(null);
   const btn = useRef(null);
 
@@ -104,7 +105,7 @@ function InfoPage() {
         0
       );
       tl.to(
-        sun2.current,
+        watchInfo.current,
         {
           y: "-=100",
         },
@@ -138,23 +139,11 @@ function InfoPage() {
         }}
         className={styles.parallax}
       >
-        <img
-          ref={mountain3}
-          className={styles.mountain3}
-          src={mountain3Img}
-        />
-        <img
-          ref={mountain2}
-          className={styles.mountain2}
-          src={mountain2Img}
-        />
-        <img
-          ref={mountain1}
-          className={styles.mountain1}
-          src={mountain1Img}
-        />
+        <img ref={mountain3} className={styles.mountain3} src={mountain3Img} />
+        <img ref={mountain2} className={styles.mountain2} src={mountain2Img} />
+        <img ref={mountain1} className={styles.mountain1} src={mountain1Img} />
         <img ref={sun} className={styles.sun} src={sunImg} />
-        <img ref={sun2} className={styles.sun} src={sun2Img} />
+        <img ref={watchInfo} className={styles.sun} src={watch} />
         <img
           ref={cloudsBottom}
           className={styles.cloudsBottom}
@@ -173,7 +162,9 @@ function InfoPage() {
         <img ref={stars} className={styles.stars} src={starsImg} />
         <div ref={copy} className={styles.copy}>
           <h1>Xelor</h1>
-          <span ref={btn}>Присоединяйся</span>
+          <Button colorScheme="teal" variant="outline">
+            Присоединяйся
+          </Button>
         </div>
       </div>
     </div>
