@@ -10,7 +10,7 @@ export default function MainPage() {
     <div>
       <InfoPage />
       <div className="mr">
-        <AboutPage />
+        <AboutPage style={{zIndex: 10000}}/>
       </div>
       <ContactsPage />
     </div>

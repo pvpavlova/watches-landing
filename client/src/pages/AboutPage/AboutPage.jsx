@@ -18,7 +18,7 @@ const ThreeDModel = () => {
 export default function App() {
   return (
     <Canvas
-      style={{ height: "100vh", background: "linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%)"}}
+      style={{ height: "100vh", background:  "linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%)"}}
     >
       <ambientLight intensity={1} />
       <pointLight position={[10, 10, 10]} intensity={1} />
