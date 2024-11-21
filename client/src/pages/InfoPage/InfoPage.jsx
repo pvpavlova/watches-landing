@@ -6,7 +6,7 @@ import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
 import mountain1Img from "./parallax/mountain-1.svg";
 import sunImg from "./parallax/sun.svg";
-import sun2Img from "./parallax/12.png";
+import watch from "./parallax/watch.svg";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
@@ -24,7 +24,7 @@ function InfoPage() {
   const cloudsRight = useRef(null);
   const stars = useRef(null);
   const sun = useRef(null);
-  const sun2 = useRef(null);
+  const watchMain = useRef(null);
   const copy = useRef(null);
   const btn = useRef(null);
 
@@ -104,7 +104,7 @@ function InfoPage() {
         0
       );
       tl.to(
-        sun2.current,
+        watchMain.current,
         {
           y: "-=100",
         },
@@ -154,7 +154,7 @@ function InfoPage() {
           src={mountain1Img}
         />
         <img ref={sun} className={styles.sun} src={sunImg} />
-        <img ref={sun2} className={styles.sun} src={sun2Img} />
+        <img ref={watchMain} className={styles.sun} src={watch} />
         <img
           ref={cloudsBottom}
           className={styles.cloudsBottom}
