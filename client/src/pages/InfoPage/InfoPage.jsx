@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./InfoPage.module.css";
 import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
-import mountain1Img from "./parallax/mountain-1.svg";
+import mountain1Img from "./parallax/mountain-12.svg";
 import sunImg from "./parallax/sun.svg";
 import watch from "./parallax/watch2.png";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
@@ -26,7 +26,6 @@ function InfoPage() {
   const sun = useRef(null);
   const watchMain = useRef(null);
   const copy = useRef(null);
-  const btn = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -99,7 +98,7 @@ function InfoPage() {
       tl.to(
         sun.current,
         {
-          y: "+=210",
+          y: "+=15vh",
         },
         0
       );
@@ -113,17 +112,10 @@ function InfoPage() {
       tl.to(
         copy.current,
         {
-          y: "-60vh",
+          y: "-54vh",
           opacity: 1,
         },
         0
-      );
-      tl.to(
-        btn.current,
-        {
-          opacity: 1,
-        },
-        1.5
       );
     });
     return () => ctx.revert();
