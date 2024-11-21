@@ -6,12 +6,11 @@ import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
 import mountain1Img from "./parallax/mountain-1.svg";
 import sunImg from "./parallax/sun.svg";
-import sun2Img from "./parallax/updated_sun2 2";
+import sun2Img from "./parallax/updated_sun2.svg";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
 import starsImg from "./parallax/stars.svg";
-import { Button } from "@chakra-ui/react";
 
 function InfoPage() {
   const [background, setBackground] = useState(20);
@@ -27,7 +26,6 @@ function InfoPage() {
   const sun = useRef(null);
   const watchMain = useRef(null);
   const copy = useRef(null);
-  const btn = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -120,13 +118,7 @@ function InfoPage() {
         },
         0
       );
-      tl.to(
-        btn.current,
-        {
-          opacity: 1,
-        },
-        1.5
-      );
+      
     });
     return () => ctx.revert();
   }, []);
@@ -164,9 +156,7 @@ function InfoPage() {
         <img ref={stars} className={styles.stars} src={starsImg} />
         <div ref={copy} className={styles.copy}>
           <h1>Xelor</h1>
-          <Button colorScheme="teal" variant="outline">
-            Присоединяйся
-          </Button>
+          
         </div>
       </div>
     </div>

@@ -17,14 +17,16 @@ const ThreeDModel = () => {
 
 export default function App() {
   return (
-    <Canvas
-      style={{ height: "100vh", background: "linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%)"}}
-    >
+    <Canvas style={{ height: "100vh", background: "#1E2022" }}   camera={{ position: [15, 5, 30], fov: 3 }} >
       <ambientLight intensity={1} />
       <pointLight position={[10, 10, 10]} intensity={1} />
-      <Environment preset="apartment" background={false} />
-      <OrbitControls enableDamping dampingFactor={0.05} />
-        <ThreeDModel />
+      <Environment preset="studio" background={false} />
+      <OrbitControls 
+        enableDamping 
+        dampingFactor={0.05} 
+        enableZoom={false} 
+      />
+      <ThreeDModel />
     </Canvas>
   );
 }
