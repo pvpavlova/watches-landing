@@ -6,7 +6,7 @@ import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
 import mountain1Img from "./parallax/mountain-1.svg";
 import sunImg from "./parallax/sun.svg";
-import sun2Img from "./parallax/12.png";
+import sun2Img from "./parallax/sun2.svg";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
@@ -134,7 +134,7 @@ function InfoPage() {
       <div
         ref={parallaxRef}
         style={{
-          background: `linear-gradient(#0F2B9C, #673D7D ${background}%, #A74A67, #EDFC54 )`,
+          background: `linear-gradient(#1A1F2E, #2C374B ${background}%, #455567, #7A93B3)`,
         }}
         className={styles.parallax}
       >
