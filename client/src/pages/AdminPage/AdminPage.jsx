@@ -1,44 +1,95 @@
-import React, { useState } from 'react';
-import { Box, Input, Button, Textarea, Flex, Text } from '@chakra-ui/react';
-import axiosInstance from '../../services/axiosInstance';
+import React, { useState } from "react";
+import {
+  Box,
+  Input,
+  Button,
+  Textarea,
+  Flex,
+  Text,
+  Heading,
+  useToast,
+} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../services/axiosInstance";
 
-const AdminPage = () => {
+const AdminPage = ({ logoutHandler }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    body: '',
-    img: '',
+    name: "",
+    body: "",
   });
-  const [message, setMessage] = useState('');
+  const [image, setImage] = useState(null); // Для хранения файла изображения
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const toast = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleFileChange = (e) => {
+    setImage(e.target.files[0]); // Сохраняем выбранный файл
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("accessToken");
+
+    const data = new FormData(); // Используем FormData для отправки файлов
+    data.append("name", formData.name);
+    data.append("body", formData.body);
+    if (image) {
+      data.append("img", image); // Добавляем файл изображения
+    }
+
     try {
-      const token = localStorage.getItem('accessToken');
-      const response = await axiosInstance.post(
-        '/api/admin/add',
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axiosInstance.post("/api/admin/add", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       setMessage(response.data.message);
-      setFormData({ name: '', body: '', img: '' });
+      toast({
+        title: "Карточка добавлена",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      setFormData({ name: "", body: "" });
+      setImage(null); // Сбрасываем файл
     } catch (error) {
-      setMessage(error.response?.data?.message || 'Ошибка добавления карточки');
+      setMessage(
+        error.response?.data?.message || "Ошибка добавления карточки"
+      );
+      toast({
+        title: "Ошибка",
+        description:
+          error.response?.data?.message || "Не удалось добавить карточку",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
     }
   };
 
+  const handleLogout = async () => {
+    await logoutHandler(); // Вызываем logoutHandler
+    navigate("/"); // Переадресация на главную страницу
+  };
+
   return (
-    <Box maxW="600px" mx="auto" mt="40px">
-      <Text fontSize="2xl" mb="4" fontWeight="bold">
+    <Box maxW="800px" mx="auto" mt="40px">
+      <Flex justifyContent="space-between" alignItems="center" mb="6">
+        <Heading as="h1" size="lg">
+          Админ Панель
+        </Heading>
+        <Button colorScheme="red" onClick={handleLogout}>
+          Выйти
+        </Button>
+      </Flex>
+      <Text fontSize="xl" mb="4" fontWeight="bold">
         Добавление новой карточки
       </Text>
       <form onSubmit={handleSubmit}>
@@ -56,10 +107,9 @@ const AdminPage = () => {
             onChange={handleChange}
           />
           <Input
-            name="img"
-            placeholder="URL изображения"
-            value={formData.img}
-            onChange={handleChange}
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange} // Обработчик выбора файла
           />
           <Button type="submit" colorScheme="blue">
             Добавить карточку

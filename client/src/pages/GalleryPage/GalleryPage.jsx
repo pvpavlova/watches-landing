@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Image, Text, Flex, Button } from "@chakra-ui/react";
+import { Box, Image, Text, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import axiosInstance from "../../services/axiosInstance";
 
@@ -71,18 +71,17 @@ const GalleryPage = () => {
   return (
     <Box
       width="100%"
-      height="100vh" // Задаем высоту страницы
+      height="70vh" // Задаем высоту страницы
       overflow="hidden"
       position="relative"
       bg="gray.200"
       display="flex"
       justifyContent="center"
-      alignItems="center"
     >
       {/* Задний фон */}
       <Box
         position="relative"
-        width="80%" // Ширина бежевого фона
+        width="95%" // Ширина бежевого фона
         height="80%" // Высота бежевого фона
         bg="linear-gradient(to bottom, #f7ebe8, #f2d7c9)" // Бежевый фон с градиентом
         borderRadius="20px"
@@ -91,6 +90,27 @@ const GalleryPage = () => {
         justifyContent="center"
         alignItems="center"
       >
+        {/* Текст слева от карточек */}
+        <Box
+          position="absolute"
+          left="2%" // Отступ от левого края
+          top="50%"
+          transform="translateY(-50%)"
+          width="20%" // Ширина блока с текстом
+          padding="20px"
+          textAlign="left"
+          fontFamily="'Cursive', 'Georgia', serif" // Прописной шрифт
+          fontSize="1.5rem" // Увеличиваем размер текста
+          color="black" // Черный цвет текста
+          zIndex="20" // Обеспечиваем, чтобы текст был поверх других элементов
+          backgroundColor="white" // Даем белый фон для текста, чтобы он был видим
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)" // Добавляем тень для контраста
+        >
+          <Text>
+            "В мире нет ничего совершенно ошибочного — даже сломанные часы дважды в сутки показывают точное время."
+          </Text>
+        </Box>
+
         {/* Галерея карточек */}
         <Flex justify="center" align="center" position="relative" height="100%">
           {getVisibleImages().map((image, index) => {
@@ -157,40 +177,43 @@ const GalleryPage = () => {
           })}
         </Flex>
 
-        {/* Кнопки управления */}
+        {/* Картинки для переключения */}
         <Flex
           position="absolute"
-          bottom="20px"
-          right="20px"
+          top="50%"
+          left="10px"
+          transform="translateY(-50%)"
           zIndex="10"
           gap="10px"
+          direction="column"
         >
-          <Button
+          <Image
+            src="https://cdn-icons-png.flaticon.com/512/60/60775.png"
+            alt="Left Arrow"
+            boxSize="40px"
+            cursor="pointer"
             onClick={handlePrev}
-            bg="blue.500"
-            color="white"
-            size="lg"
-            borderRadius="full"
-            boxShadow="0 4px 10px rgba(0, 0, 0, 0.3)"
-            _hover={{ bg: "blue.400", transform: "scale(1.1)" }}
-            _active={{ bg: "blue.600" }}
-            isDisabled={images.length === 0}
-          >
-            {"◀"}
-          </Button>
-          <Button
+            _hover={{ transform: "scale(1.1)", transition: "transform 0.2s" }}
+          />
+        </Flex>
+
+        <Flex
+          position="absolute"
+          top="50%"
+          right="10px"
+          transform="translateY(-50%)"
+          zIndex="10"
+          gap="10px"
+          direction="column"
+        >
+          <Image
+            src="https://cdn-icons-png.flaticon.com/512/60/60758.png"
+            alt="Right Arrow"
+            boxSize="40px"
+            cursor="pointer"
             onClick={handleNext}
-            bg="blue.500"
-            color="white"
-            size="lg"
-            borderRadius="full"
-            boxShadow="0 4px 10px rgba(0, 0, 0, 0.3)"
-            _hover={{ bg: "blue.400", transform: "scale(1.1)" }}
-            _active={{ bg: "blue.600" }}
-            isDisabled={images.length === 0}
-          >
-            {"▶"}
-          </Button>
+            _hover={{ transform: "scale(1.1)", transition: "transform 0.2s" }}
+          />
         </Flex>
       </Box>
     </Box>
