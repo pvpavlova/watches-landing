@@ -25,7 +25,7 @@ function InfoPage() {
   const cloudsRight = useRef(null);
   const stars = useRef(null);
   const sun = useRef(null);
-  const watchInfo = useRef(null);
+  const watchMain = useRef(null);
   const copy = useRef(null);
   const btn = useRef(null);
 
@@ -105,7 +105,8 @@ function InfoPage() {
         0
       );
       tl.to(
-        watchInfo.current,
+
+        watchMain.current,
         {
           y: "-=100",
         },
@@ -143,7 +144,8 @@ function InfoPage() {
         <img ref={mountain2} className={styles.mountain2} src={mountain2Img} />
         <img ref={mountain1} className={styles.mountain1} src={mountain1Img} />
         <img ref={sun} className={styles.sun} src={sunImg} />
-        <img ref={watchInfo} className={styles.sun} src={watch} />
+        <img ref={watchMain} className={styles.sun} src={watch} />
+
         <img
           ref={cloudsBottom}
           className={styles.cloudsBottom}
