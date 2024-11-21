@@ -6,6 +6,10 @@ body {
     box-sizing: border-box;
 }
 
+h1 {
+    color: linear-gradient(90deg, #FFDEB4, #FF8A71, #F7676B);
+}
+
 :root {
     --primaryColor: #282a57;
     --secondaryColor: #e4e4e4;
@@ -55,6 +59,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40%;
+    overflow: hidden;
 }
 
 .cloudsLeft {

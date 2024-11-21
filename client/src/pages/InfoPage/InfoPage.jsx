@@ -11,6 +11,7 @@ import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
 import starsImg from "./parallax/stars.svg";
+import { Button } from "@chakra-ui/react";
 
 function InfoPage() {
   const [background, setBackground] = useState(20);
@@ -104,6 +105,7 @@ function InfoPage() {
         0
       );
       tl.to(
+
         watchMain.current,
         {
           y: "-=100",
@@ -138,23 +140,12 @@ function InfoPage() {
         }}
         className={styles.parallax}
       >
-        <img
-          ref={mountain3}
-          className={styles.mountain3}
-          src={mountain3Img}
-        />
-        <img
-          ref={mountain2}
-          className={styles.mountain2}
-          src={mountain2Img}
-        />
-        <img
-          ref={mountain1}
-          className={styles.mountain1}
-          src={mountain1Img}
-        />
+        <img ref={mountain3} className={styles.mountain3} src={mountain3Img} />
+        <img ref={mountain2} className={styles.mountain2} src={mountain2Img} />
+        <img ref={mountain1} className={styles.mountain1} src={mountain1Img} />
         <img ref={sun} className={styles.sun} src={sunImg} />
         <img ref={watchMain} className={styles.sun} src={watch} />
+
         <img
           ref={cloudsBottom}
           className={styles.cloudsBottom}
@@ -173,7 +164,9 @@ function InfoPage() {
         <img ref={stars} className={styles.stars} src={starsImg} />
         <div ref={copy} className={styles.copy}>
           <h1>Xelor</h1>
-          <span ref={btn}>Присоединяйся</span>
+          <Button colorScheme="teal" variant="outline">
+            Присоединяйся
+          </Button>
         </div>
       </div>
     </div>
