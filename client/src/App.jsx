@@ -1,3 +1,4 @@
+import AdminPage from "./pages/AdminPage/AdminPage";
 import MainPage from "./pages/MainPage/MainPage";
 import Root from "./Root";
 import {
@@ -14,6 +15,10 @@ function App() {
         {
           path: "/",
           element: <MainPage />,
+        },
+        {
+          path: "/admin",
+          element: <AdminPage />,
         },
       ],
     },
