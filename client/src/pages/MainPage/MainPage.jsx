@@ -4,6 +4,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import ContactsPage from "../ContactsPage/ContactsPage";
 import "./MainPage.css";
 import GalleryPage from "../GalleryPage/GalleryPage";
+import PoolPage from "../PoolPage/PoolPage";
 
 export default function MainPage() {
   return (
@@ -14,6 +15,7 @@ export default function MainPage() {
       </div>
       <ContactsPage />
       <GalleryPage />
+      <PoolPage />
     </div>
   );
 }
