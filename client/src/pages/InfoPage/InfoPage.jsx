@@ -126,7 +126,7 @@ function InfoPage() {
       <div
         ref={parallaxRef}
         style={{
-          background: `linear-gradient(#0F2B9C, #673D7D ${background}%, #A74A67, #EDFC54 )`,
+          background: `linear-gradient(#1A1F2E, #2C374B ${background}%, #455567, #7A93B3)`,
         }}
         className={styles.parallax}
       >
@@ -134,7 +134,9 @@ function InfoPage() {
         <img ref={mountain2} className={styles.mountain2} src={mountain2Img} />
         <img ref={mountain1} className={styles.mountain1} src={mountain1Img} />
         <img ref={sun} className={styles.sun} src={sunImg} />
+
         <img ref={watchMain} className={styles.sun} src={watch} />
+
         <img
           ref={cloudsBottom}
           className={styles.cloudsBottom}
@@ -153,6 +155,7 @@ function InfoPage() {
         <img ref={stars} className={styles.stars} src={starsImg} />
         <div ref={copy} className={styles.copy}>
           <h1>Xelor</h1>
+
         </div>
       </div>
     </div>
