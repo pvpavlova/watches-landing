@@ -12,6 +12,7 @@ import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
 import starsImg from "./parallax/stars.svg";
 import { Link } from "react-router-dom";
+import NavBar from "../../components/NavBar/NavBar";
 
 function InfoPage() {
   const [background, setBackground] = useState(20);

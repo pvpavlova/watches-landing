@@ -1,7 +1,7 @@
 .navbar-container {
   height: 60px;
   width: 100%;
-  background: #1A1F2E;
+  background: #1a1f2e;
   display: flex;
   align-items: center;
   position: sticky;
@@ -21,7 +21,6 @@ link {
 .logo {
   font-size: 26px;
   font-weight: bold;
-  color: #ffe3ef;
   cursor: pointer;
   transition: color 0.3s;
   text-decoration: none;
@@ -42,13 +41,11 @@ a:-webkit-any-link {
   align-items: center;
   justify-content: flex-end;
   padding-right: 20px;
-  color: #ffe3ef;
 }
 
 .navbar-link {
   margin-right: 20px;
   font-size: 15px;
-  color: #ffe3ef;
   cursor: pointer;
   transition: color 0.3s;
 }
