@@ -4,9 +4,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./InfoPage.module.css";
 import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
-import mountain1Img from "./parallax/mountain-12.svg";
+import mountain1Img from "./parallax/mountain-1.svg";
 import sunImg from "./parallax/sun.svg";
-import watch from "./parallax/watch2.png";
+import sun2Img from "./parallax/12.png";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
@@ -24,8 +24,9 @@ function InfoPage() {
   const cloudsRight = useRef(null);
   const stars = useRef(null);
   const sun = useRef(null);
-  const watchMain = useRef(null);
+  const sun2 = useRef(null);
   const copy = useRef(null);
+  const btn = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -98,12 +99,12 @@ function InfoPage() {
       tl.to(
         sun.current,
         {
-          y: "+=15vh",
+          y: "+=210",
         },
         0
       );
       tl.to(
-        watchMain.current,
+        sun2.current,
         {
           y: "-=100",
         },
@@ -112,10 +113,17 @@ function InfoPage() {
       tl.to(
         copy.current,
         {
-          y: "-54vh",
+          y: "-250%",
           opacity: 1,
         },
         0
+      );
+      tl.to(
+        btn.current,
+        {
+          opacity: 1,
+        },
+        1.5
       );
     });
     return () => ctx.revert();
@@ -130,11 +138,23 @@ function InfoPage() {
         }}
         className={styles.parallax}
       >
-        <img ref={mountain3} className={styles.mountain3} src={mountain3Img} />
-        <img ref={mountain2} className={styles.mountain2} src={mountain2Img} />
-        <img ref={mountain1} className={styles.mountain1} src={mountain1Img} />
+        <img
+          ref={mountain3}
+          className={styles.mountain3}
+          src={mountain3Img}
+        />
+        <img
+          ref={mountain2}
+          className={styles.mountain2}
+          src={mountain2Img}
+        />
+        <img
+          ref={mountain1}
+          className={styles.mountain1}
+          src={mountain1Img}
+        />
         <img ref={sun} className={styles.sun} src={sunImg} />
-        <img ref={watchMain} className={styles.sun} src={watch} />
+        <img ref={sun2} className={styles.sun} src={sun2Img} />
         <img
           ref={cloudsBottom}
           className={styles.cloudsBottom}
@@ -153,6 +173,7 @@ function InfoPage() {
         <img ref={stars} className={styles.stars} src={starsImg} />
         <div ref={copy} className={styles.copy}>
           <h1>Xelor</h1>
+          <span ref={btn}>Присоединяйся</span>
         </div>
       </div>
     </div>

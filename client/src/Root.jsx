@@ -4,7 +4,7 @@ import Navbar from './components/NavBar/NavBar';
 export default function Root() {
   return (
     <>
-   {/*    <Navbar /> */}
+      <Navbar />
       <div>
         <Outlet />
       </div>
