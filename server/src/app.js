@@ -9,6 +9,7 @@ const cardRouter = require('./routers/card.router')
 const tokenRouter = require('./routers/token.router')
 const adminRouter = require('./routers/admin.router');
 const authRouter = require('./routers/auth.router')
+const poolRouter = require('./routers/pool.router');
 
 const { PORT } = process.env;
 
@@ -28,6 +29,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/token', tokenRouter)
 app.use('/api/card', cardRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/pool', poolRouter);
 
 
 app.listen(PORT, () => {
