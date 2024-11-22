@@ -13,7 +13,7 @@ export default function MainPage() {
         <AboutPage style={{zIndex: 10000}}/>
       </div>
       <ContactsPage />
+      <GalleryPage />
     </div>
   );
 }
-  )}

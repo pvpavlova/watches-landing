@@ -4,9 +4,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./InfoPage.module.css";
 import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
-import mountain1Img from "./parallax/mountain-12.svg";
+import mountain1Img from "./parallax/mountain-1.svg";
 import sunImg from "./parallax/sun.svg";
-import watch from "./parallax/watch2.png";
+import watch from "./parallax/watch.svg";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
@@ -98,7 +98,7 @@ function InfoPage() {
       tl.to(
         sun.current,
         {
-          y: "+=15vh",
+          y: "+=210",
         },
         0
       );
