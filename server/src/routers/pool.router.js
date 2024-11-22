@@ -41,7 +41,7 @@ console.log("🚀 ~ EMAIL_USER:", process.env.EMAIL_USER)
 // Обработка отправки формы
 router.post('/submit', upload.single('userImg'), async (req, res) => {
   const { userName, userEmail, userPhone } = req.body;
-  const filePath = req.file ? `/uploads/${req.file.filename}` : null;
+  const filePath = req.file ? `${req.file.filename}` : null;
 
   try {
     // Сохранение данных в базу данных через Sequelize

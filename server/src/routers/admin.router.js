@@ -4,7 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');  // Импортируем middleware для проверки access token
 const authAdmin = require('../middlewares/authAdmin');  // Импортируем middleware для проверки прав администратора
-const { Card } = require('../../db/models');
+const { Card, Pool } = require('../../db/models');
 const fs = require('fs');
 
 const uploadDir = path.resolve(__dirname, '../../public/images');
@@ -45,6 +45,16 @@ router.post('/add', upload.single('img'), async (req, res) => {
     res.status(201).json({ message: 'Карточка успешно создана', Card: newCard });
   } catch (error) {
     res.status(500).json({ message: 'Ошибка при создании карточки', error: error.message });
+  }
+});
+
+router.get('/pools', async (req, res) => {
+  try {
+    const pools = await Pool.findAll();  // Получаем все записи из модели Pools
+    res.status(200).json(pools);
+  } catch (error) {
+    console.error('Ошибка при получении карточек:', error);
+    res.status(500).json({ message: 'Ошибка при получении данных' });
   }
 });
 
