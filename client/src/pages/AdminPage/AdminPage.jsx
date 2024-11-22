@@ -48,7 +48,7 @@ const AdminPage = ({ logoutHandler }) => {
   const handleDownload = (imgPath) => {
     // Создаем ссылку для скачивания
     const link = document.createElement("a");
-    link.href = `http://localhost:5173/uploads/${imgPath}`;
+    link.href = `http://localhost:3000/uploads/${imgPath}`;
     link.download = imgPath; // Указываем имя файла для скачивания
     document.body.appendChild(link);
     link.click();
