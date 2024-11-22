@@ -102,6 +102,7 @@ const GalleryPage = () => {
             style={{
               fontFamily: "Montserrat",
               color: "#e4e4e4",
+              fontSize: "18px"
             }}
           >
             <blockquote>
