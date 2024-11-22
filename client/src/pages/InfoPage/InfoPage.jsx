@@ -126,7 +126,7 @@ function InfoPage() {
       <div
         ref={parallaxRef}
         style={{
-          background: `linear-gradient(#1A1F2E, #2C374B ${background}%, #455567, #7A93B3)`,
+          background: `linear-gradient(#1A1F2E, #2C374B ${background}%, #455567, #7A93B3)` /* `linear-gradient(#0F2B9C, #673D7D ${background}%, #A74A67, #EDFC54 )` */,
         }}
         className={styles.parallax}
       >
@@ -155,7 +155,6 @@ function InfoPage() {
         <img ref={stars} className={styles.stars} src={starsImg} />
         <div ref={copy} className={styles.copy}>
           <h1>Xelor</h1>
-
         </div>
       </div>
     </div>
