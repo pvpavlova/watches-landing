@@ -6,7 +6,7 @@ import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
 import mountain1Img from "./parallax/mountain-1.svg";
 import sunImg from "./parallax/sun.svg";
-import sun2Img from "./parallax/12.png";
+import sun2Img from "./parallax/updated_sun2.svg";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
@@ -26,7 +26,6 @@ function InfoPage() {
   const sun = useRef(null);
   const sun2 = useRef(null);
   const copy = useRef(null);
-  const btn = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -118,13 +117,7 @@ function InfoPage() {
         },
         0
       );
-      tl.to(
-        btn.current,
-        {
-          opacity: 1,
-        },
-        1.5
-      );
+      
     });
     return () => ctx.revert();
   }, []);
@@ -134,7 +127,7 @@ function InfoPage() {
       <div
         ref={parallaxRef}
         style={{
-          background: `linear-gradient(#0F2B9C, #673D7D ${background}%, #A74A67, #EDFC54 )`,
+          background: `linear-gradient(#1A1F2E, #2C374B ${background}%, #455567, #7A93B3)`,
         }}
         className={styles.parallax}
       >
@@ -154,7 +147,10 @@ function InfoPage() {
           src={mountain1Img}
         />
         <img ref={sun} className={styles.sun} src={sunImg} />
+
         <img ref={sun2} className={styles.sun} src={sun2Img} />
+
+
         <img
           ref={cloudsBottom}
           className={styles.cloudsBottom}
@@ -174,6 +170,7 @@ function InfoPage() {
         <div ref={copy} className={styles.copy}>
           <h1>Xelor</h1>
           <span ref={btn}>Присоединяйся</span>
+
         </div>
       </div>
     </div>

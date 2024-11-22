@@ -6,6 +6,7 @@ import GalleryPage from '../GalleryPage/GalleryPage'
 
 export default function MainPage() {
   return (
-    <div><InfoPage/><AboutPage/><ContactsPage/><GalleryPage/></div>
-  )
-}
+
+    <div><InfoPage/><div className='mr'><AboutPage/></div><ContactsPage/><GalleryPage/></div>
+
+  )}
