@@ -12,7 +12,7 @@ const ThreeDModel = () => {
     }
   });
 
-  return <primitive ref={modelRef} object={scene} scale={[10, 10, 10]} position={[0, 0.2, 0]} />; // Подняли модель на 5 по оси Y
+  return <primitive ref={modelRef} object={scene} scale={[10, 10, 10]} position={[0, 0.2, 0]} />; 
 };
 
 export default function App() {

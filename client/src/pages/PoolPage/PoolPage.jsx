@@ -46,17 +46,20 @@ const PoolPage = () => {
       height="70vh"
       padding="20px"
     >
+      <Text fontSize="2xl" fontFamily={"Montserrat"}  mb="6" textAlign="center">
+          Пришлите эскиз, и мы с любовью создадим для вас часы, которые будут вам по душе.
+        </Text>
       <Box
-        bg="white"
+       borderColor="gray.300"
+                bg="linear-gradient(to bottom right, #738595, #1E2022)"
         p="6"
         borderRadius="lg"
         boxShadow="0 2px 10px rgba(0, 0, 0, 0.1)"
         width="100%"
         maxWidth="500px"
+        marginTop="50px"
       >
-        <Text fontSize="2xl" fontWeight="bold" mb="6" textAlign="center">
-          Заполните форму
-        </Text>
+       
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <Input
             type="text"
@@ -70,6 +73,7 @@ const PoolPage = () => {
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.500' }}
             _focus={{ borderColor: 'blue.500' }}
+                    bg="white"
           />
           <Input
             type="email"
@@ -83,6 +87,7 @@ const PoolPage = () => {
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.500' }}
             _focus={{ borderColor: 'blue.500' }}
+            bg="white"
           />
           <Input
             type="tel"
@@ -95,6 +100,7 @@ const PoolPage = () => {
             borderRadius="md"
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.500' }}
+            bg="white"
             _focus={{ borderColor: 'blue.500' }}
           />
           <Input
@@ -104,6 +110,7 @@ const PoolPage = () => {
             required
             mb="4"
             borderRadius="md"
+            bg="white"
             borderColor="gray.300"
           />
           <Button
@@ -111,6 +118,7 @@ const PoolPage = () => {
             colorScheme="blue"
             width="full"
             mt="4"
+            bg="#002238"
             borderRadius="md"
             _hover={{ transform: 'scale(1.05)' }}
             _active={{ transform: 'scale(0.98)' }}
