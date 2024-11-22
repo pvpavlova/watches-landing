@@ -1,4 +1,3 @@
-import React from "react";
 import InfoPage from "../InfoPage/InfoPage";
 import AboutPage from "../AboutPage/AboutPage";
 import ContactsPage from "../ContactsPage/ContactsPage";

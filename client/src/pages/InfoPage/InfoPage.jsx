@@ -11,7 +11,6 @@ import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
 import starsImg from "./parallax/stars.svg";
-import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 
 function InfoPage() {
@@ -139,14 +138,6 @@ function InfoPage() {
             </Link>
           </div>
           <div className="navbar-right">
-            {/*             {user?.email ? (
-              <>
-                <div className="link">Добро пожаловать,{user.username}</div>
-                <span onClick={logoutHandler} className="exit">
-                  Выйти
-                </span>
-              </>
-            ) : */}{" "}
             <>
               <Link to="/" className={styles.link}>
                 Отправить эскиз

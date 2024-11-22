@@ -33,8 +33,8 @@ const GalleryPage = () => {
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      (prevIndex - 1 + images.length) % images.length
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
 
@@ -48,8 +48,8 @@ const GalleryPage = () => {
   };
 
   const calculatePosition = (index) => {
-    const offset = index - 2; 
-    return offset * 220;  
+    const offset = index - 2;
+    return offset * 220;
   };
 
   if (loading) {
@@ -65,7 +65,7 @@ const GalleryPage = () => {
   return (
     <Box
       width="100%"
-      height="70vh" 
+      height="70vh"
       overflow="hidden"
       position="relative"
       bg="#738595"
@@ -88,25 +88,36 @@ const GalleryPage = () => {
           left="5%"
           top="50%"
           transform="translateY(-50%)"
-          width="20%" 
+          width="20%"
           padding="20px"
           textAlign="left"
-          fontFamily="'Cursive', 'Georgia', serif" 
-          fontSize="1.5rem" 
-          color="#738595" 
-          zIndex="20" 
-          backgroundColor="#1E2022" 
-          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)" 
+          fontFamily="'Cursive', 'Georgia', serif"
+          fontSize="1.5rem"
+          color="#738595"
+          zIndex="20"
+          backgroundColor="#1E2022"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
         >
-          <Text>
-            "В мире нет ничего совершенно ошибочного — даже сломанные часы дважды в сутки показывают точное время"
+          <Text
+            style={{
+              fontFamily: "Montserrat",
+              color: "#e4e4e4",
+            }}
+          >
+            <blockquote>
+              <em>
+                В мире нет ничего совершенно ошибочного — даже сломанные часы
+                дважды в сутки показывают точное время.
+              </em><br /> <br />
+              <cite>— Джейсон Стейтем</cite>
+            </blockquote>
           </Text>
         </Box>
 
         <Flex justify="center" align="center" position="relative" height="100%">
           {getVisibleImages().map((image, index) => {
             const position = calculatePosition(index);
-            const isCenter = index === 2; 
+            const isCenter = index === 2;
 
             return (
               <motion.div
@@ -115,9 +126,9 @@ const GalleryPage = () => {
                   position: "absolute",
                   left: `calc(50% + ${position}px)`,
                   transform: "translateX(-50%)",
-                  width: "200px",  
-                  height: "280px", 
-                  zIndex: isCenter ? 10 : 5, 
+                  width: "200px",
+                  height: "280px",
+                  zIndex: isCenter ? 10 : 5,
                 }}
                 initial={{
                   scale: 0.9,
