@@ -4,9 +4,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./InfoPage.module.css";
 import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
-import mountain1Img from "./parallax/mountain-1.svg";
+import mountain1Img from "./parallax/mountain-12.svg";
 import sunImg from "./parallax/sun.svg";
-import sun2Img from "./parallax/updated_sun2.svg";
+import watch from "./parallax/watch2.png";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
@@ -98,12 +98,11 @@ function InfoPage() {
       tl.to(
         sun.current,
         {
-          y: "+=210",
+          y: "+=15vh",
         },
         0
       );
       tl.to(
-
         watchMain.current,
         {
           y: "-=100",
@@ -113,12 +112,11 @@ function InfoPage() {
       tl.to(
         copy.current,
         {
-          y: "-250%",
+          y: "-54vh",
           opacity: 1,
         },
         0
       );
-      
     });
     return () => ctx.revert();
   }, []);
@@ -136,7 +134,8 @@ function InfoPage() {
         <img ref={mountain2} className={styles.mountain2} src={mountain2Img} />
         <img ref={mountain1} className={styles.mountain1} src={mountain1Img} />
         <img ref={sun} className={styles.sun} src={sunImg} />
-        <img ref={watchMain} className={styles.sun} src={sun2Img} />
+
+        <img ref={watchMain} className={styles.sun} src={watch} />
 
         <img
           ref={cloudsBottom}
@@ -156,7 +155,7 @@ function InfoPage() {
         <img ref={stars} className={styles.stars} src={starsImg} />
         <div ref={copy} className={styles.copy}>
           <h1>Xelor</h1>
-          
+
         </div>
       </div>
     </div>

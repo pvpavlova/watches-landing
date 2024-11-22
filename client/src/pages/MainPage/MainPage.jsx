@@ -7,6 +7,13 @@ import GalleryPage from "../GalleryPage/GalleryPage";
 
 export default function MainPage() {
   return (
-    <div><InfoPage/><div className='mr'><AboutPage/></div><ContactsPage/><GalleryPage/></div>
-
+    <div>
+      <InfoPage />
+      <div className="mr">
+        <AboutPage style={{zIndex: 10000}}/>
+      </div>
+      <ContactsPage />
+    </div>
+  );
+}
   )}
