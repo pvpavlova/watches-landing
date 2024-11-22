@@ -4,18 +4,17 @@ import { motion } from "framer-motion";
 import axiosInstance from "../../services/axiosInstance";
 
 const GalleryPage = () => {
-  const [images, setImages] = useState([]); // Состояние для карточек
-  const [currentIndex, setCurrentIndex] = useState(0); // Индекс текущей карточки
-  const [loading, setLoading] = useState(true); // Состояние загрузки
+  const [images, setImages] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  // Функция загрузки карточек
   const fetchImages = async () => {
     try {
       setLoading(true);
       const response = await axiosInstance.get("/api/card");
       const updatedImages = response.data.map((card) => ({
         ...card,
-        img: `http://localhost:3000/images/${card.img}`, // Путь к изображениям
+        img: `http://localhost:3000/images/${card.img}`,
       }));
       setImages(updatedImages);
     } catch (error) {
@@ -25,12 +24,10 @@ const GalleryPage = () => {
     }
   };
 
-  // Загружаем карточки при первом рендере
   useEffect(() => {
     fetchImages();
   }, []);
 
-  // Функции переключения
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
@@ -41,23 +38,20 @@ const GalleryPage = () => {
     );
   };
 
-  // Получение списка 5 карточек для отображения
   const getVisibleImages = () => {
     const visibleImages = [];
     for (let i = -2; i <= 2; i++) {
-      const index = (currentIndex + i + images.length) % images.length; // Циклический индекс
+      const index = (currentIndex + i + images.length) % images.length;
       visibleImages.push(images[index]);
     }
     return visibleImages;
   };
 
-  // Расчёт позиции карточки
   const calculatePosition = (index) => {
-    const offset = index - 2; // Центральная карточка имеет offset = 0
-    return offset * 350; // Расстояние между карточками
+    const offset = index - 2; 
+    return offset * 220;  
   };
 
-  // Если данные загружаются, показываем индикатор загрузки
   if (loading) {
     return (
       <Flex justify="center" align="center" height="100vh" bg="gray.100">
@@ -71,74 +65,75 @@ const GalleryPage = () => {
   return (
     <Box
       width="100%"
-      height="70vh" // Задаем высоту страницы
+      height="70vh" 
       overflow="hidden"
       position="relative"
-      bg="gray.200"
+      bg="#738595"
       display="flex"
       justifyContent="center"
     >
-      {/* Задний фон */}
       <Box
         position="relative"
-        width="95%" // Ширина бежевого фона
-        height="80%" // Высота бежевого фона
-        bg="linear-gradient(to bottom, #f7ebe8, #f2d7c9)" // Бежевый фон с градиентом
+        width="95%"
+        height="80%"
+        bg="linear-gradient(to bottom right, #738595, #1E2022)"
         borderRadius="20px"
         boxShadow="0px 4px 20px rgba(0, 0, 0, 0.2)"
         display="flex"
         justifyContent="center"
         alignItems="center"
       >
-        {/* Текст слева от карточек */}
         <Box
           position="absolute"
-          left="2%" // Отступ от левого края
+          left="5%"
           top="50%"
           transform="translateY(-50%)"
-          width="20%" // Ширина блока с текстом
+          width="20%" 
           padding="20px"
           textAlign="left"
-          fontFamily="'Cursive', 'Georgia', serif" // Прописной шрифт
-          fontSize="1.5rem" // Увеличиваем размер текста
-          color="black" // Черный цвет текста
-          zIndex="20" // Обеспечиваем, чтобы текст был поверх других элементов
-          backgroundColor="white" // Даем белый фон для текста, чтобы он был видим
-          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)" // Добавляем тень для контраста
+          fontFamily="'Cursive', 'Georgia', serif" 
+          fontSize="1.5rem" 
+          color="#738595" 
+          zIndex="20" 
+          backgroundColor="#1E2022" 
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)" 
         >
           <Text>
-            "В мире нет ничего совершенно ошибочного — даже сломанные часы дважды в сутки показывают точное время."
+            "В мире нет ничего совершенно ошибочного — даже сломанные часы дважды в сутки показывают точное время"
           </Text>
         </Box>
 
-        {/* Галерея карточек */}
         <Flex justify="center" align="center" position="relative" height="100%">
           {getVisibleImages().map((image, index) => {
             const position = calculatePosition(index);
-            const isCenter = index === 2; // Центральная карточка — это третья в списке
+            const isCenter = index === 2; 
 
             return (
               <motion.div
                 key={image.id}
                 style={{
                   position: "absolute",
-                  left: `calc(50% + ${position}px)`, // Позиция карточки
+                  left: `calc(50% + ${position}px)`,
                   transform: "translateX(-50%)",
-                  width: "300px",
-                  height: "450px",
-                  zIndex: isCenter ? 10 : 5, // Центральная карточка выше
+                  width: "200px",  
+                  height: "280px", 
+                  zIndex: isCenter ? 10 : 5, 
                 }}
                 initial={{
                   scale: 0.9,
-                  opacity: 0.4, // Новая карточка сразу принимает вид боковой
+                  opacity: 0.4,
                 }}
                 animate={{
-                  scale: isCenter ? 1.2 : 0.9, // Увеличиваем центральную карточку
-                  opacity: isCenter ? 1 : 0.4, // Боковые карточки прозрачнее
+                  scale: isCenter ? 1.2 : 0.9,
+                  opacity: isCenter ? 1 : 0.4,
                 }}
                 transition={{
-                  duration: 0.5, // Плавность движения
+                  duration: 0.5,
                   ease: "easeInOut",
+                }}
+                onClick={() => {
+                  // При клике на карточку меняем текущий индекс
+                  setCurrentIndex(index + currentIndex - 2);
                 }}
               >
                 <Flex
@@ -150,7 +145,6 @@ const GalleryPage = () => {
                   bg="white"
                   p={4}
                 >
-                  {/* Изображение карточки */}
                   <Image
                     src={image.img}
                     alt={image.name}
@@ -163,11 +157,9 @@ const GalleryPage = () => {
                       transition: "transform 0.3s ease-in-out",
                     }}
                   />
-                  {/* Название карточки */}
                   <Text mt={2} fontSize="lg" fontWeight="bold" color="gray.700">
                     {image.name || "Без названия"}
                   </Text>
-                  {/* Описание карточки */}
                   <Text mt={1} fontSize="sm" color="gray.500">
                     {image.body || "Описание отсутствует"}
                   </Text>
@@ -177,7 +169,7 @@ const GalleryPage = () => {
           })}
         </Flex>
 
-        {/* Картинки для переключения */}
+        {/* Стрелки для переключения карточек */}
         <Flex
           position="absolute"
           top="50%"

@@ -98,7 +98,7 @@ function InfoPage() {
       tl.to(
         sun.current,
         {
-          y: "+=210",
+          y: "+=20vh",
         },
         0
       );
@@ -122,7 +122,7 @@ function InfoPage() {
   }, []);
 
   return (
-    <div className={styles.parallaxOuter}>
+    <div className={styles.parallaxOuter} style={{overflow:"hidden"}}>
       <div
         ref={parallaxRef}
         style={{
