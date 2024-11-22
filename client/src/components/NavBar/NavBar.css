@@ -1,12 +1,11 @@
 .navbar-container {
   height: 60px;
   width: 100%;
-  background-color: #ff9ac1;
+  background: #1A1F2E;
   display: flex;
   align-items: center;
   position: sticky;
   top: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 5;
 }
 
@@ -14,9 +13,11 @@
   flex: 3;
   padding-left: 20px;
 }
+
 link {
   text-decoration: none;
 }
+
 .logo {
   font-size: 26px;
   font-weight: bold;
@@ -25,11 +26,13 @@ link {
   transition: color 0.3s;
   text-decoration: none;
 }
+
 a:-webkit-any-link {
   text-decoration: none;
 }
+
 .logo:hover {
-  color: #99e6ff;
+  color: #08aee6;
   text-decoration: none;
 }
 
@@ -111,9 +114,11 @@ a:-webkit-any-link {
   cursor: pointer;
   color: #99e6ff;
 }
+
 .link {
   padding-right: 20px;
 }
+
 .navbar-img:hover {
   border-color: #ff6aa3;
 }

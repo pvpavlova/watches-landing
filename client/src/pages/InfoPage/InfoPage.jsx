@@ -11,6 +11,8 @@ import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
 import starsImg from "./parallax/stars.svg";
+import NavBar from "../../components/NavBar/NavBar";
+import { Link } from "react-router-dom";
 
 function InfoPage() {
   const [background, setBackground] = useState(20);
@@ -98,7 +100,7 @@ function InfoPage() {
       tl.to(
         sun.current,
         {
-          y: "+=210",
+          y: "+=20vh",
         },
         0
       );
@@ -130,6 +132,31 @@ function InfoPage() {
         }}
         className={styles.parallax}
       >
+        <div className={styles.navbarContainer}>
+          <div className="navbar-left">
+            <Link to="/">
+              <span className={styles.logo}>Xe</span>
+            </Link>
+          </div>
+          <div className="navbar-right">
+            {/*             {user?.email ? (
+              <>
+                <div className="link">Добро пожаловать,{user.username}</div>
+                <span onClick={logoutHandler} className="exit">
+                  Выйти
+                </span>
+              </>
+            ) : */}{" "}
+            <>
+              <Link to="/signin" className={styles.link}>
+                Контакты
+              </Link>
+              <Link to="/signin" className={styles.link}>
+                Отправить эскиз
+              </Link>
+            </>
+          </div>
+        </div>
         <img ref={mountain3} className={styles.mountain3} src={mountain3Img} />
         <img ref={mountain2} className={styles.mountain2} src={mountain2Img} />
         <img ref={mountain1} className={styles.mountain1} src={mountain1Img} />
