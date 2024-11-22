@@ -31,5 +31,5 @@ app.use('/api/admin', adminRouter);
 
 
 app.listen(PORT, () => {
-  console.log(`Server started at ${PORT} port`);;
+  `console.log(Server started at ${PORT} port);`;
 });
