@@ -135,7 +135,7 @@ function InfoPage() {
         <div className={styles.navbarContainer}>
           <div className="navbar-left">
             <Link to="/">
-              <span className={styles.logo}>Xe</span>
+              <span className={styles.logo}>X</span>
             </Link>
           </div>
           <div className="navbar-right">
@@ -148,11 +148,20 @@ function InfoPage() {
               </>
             ) : */}{" "}
             <>
-              <Link to="/signin" className={styles.link}>
-                Контакты
-              </Link>
-              <Link to="/signin" className={styles.link}>
+              <Link to="/" className={styles.link}>
                 Отправить эскиз
+              </Link>
+              <Link to="/" className={styles.link}>
+                |
+              </Link>
+              <Link to="/" className={styles.link}>
+                О нас
+              </Link>
+              <Link to="/" className={styles.link}>
+                |
+              </Link>
+              <Link to="/" className={styles.link}>
+                Контакты
               </Link>
             </>
           </div>
