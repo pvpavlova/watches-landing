@@ -57,7 +57,6 @@ body {
 }
 
 .sun {
-
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -118,3 +117,24 @@ body {
   border-radius: 0.5rem;
   opacity: 0;
 }
+
+.navbarContainer {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    color: var(--secondaryColor);
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+.logo{
+    cursor: pointer;
+}
+
+.link {
+    padding-right: 20px;
+    cursor: pointer;
+  }
