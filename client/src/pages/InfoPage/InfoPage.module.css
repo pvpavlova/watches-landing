@@ -1,55 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600;800&display=swap');
 
 *,
 html,
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+h1 {
+  color: linear-gradient(90deg, #ffdeb4, #ff8a71, #f7676b);
 }
 
 :root {
-    --primaryColor: #282a57;
-    --secondaryColor: #e4e4e4;
+  --primaryColor: #282a57;
+  --secondaryColor: #e4e4e4;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--primaryColor);
-    color: var(--secondaryColor);
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
 }
 
 .parallax-outer {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .parallax {
-    height: 110vh;
-    width: 100%;
-    position: relative;
+  height: 110vh;
+  width: 100%;
+  position: relative;
 }
 
 .parallax img {
-    position: absolute;
+  position: absolute;
 }
-
 
 .mountain3,
 .mountain2,
 .mountain1 {
-    width: 100%;
-    bottom: 0;
-    z-index: 3;
+  width: 100%;
+  bottom: 0;
+  z-index: 3;
 }
 
 .mountain2 {
-    bottom: 20px;
-    z-index: 2;
+  bottom: 20px;
+  z-index: 2;
 }
 
 .mountain1 {
-    bottom: 40px;
-    z-index: 1;
+  bottom: 40px;
+  z-index: 1;
 }
 
 .sun {
@@ -59,41 +62,42 @@ body {
     width: 40%;
     max-width: 100%; /* Чтобы не выходило за пределы ширины контейнера */
     overflow: hidden;
+
 }
 
 .cloudsLeft {
-    left: 0;
-    width: 20%;
+  left: 0;
+  width: 20%;
 }
 
 .cloudsRight {
-    right: 0;
-    width: 20%;
+  right: 0;
+  width: 20%;
 }
 
 .cloudsBottom {
-    bottom: 0px;
-    width: 100%;
+  bottom: 0px;
+  width: 100%;
 }
 
 .stars {
-    top: -550px;
-    left: 0;
-    width: 100%;
+  top: -550px;
+  left: 0;
+  width: 100%;
 }
 
 .copy {
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    color: var(--secondaryColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    opacity: 0;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  color: var(--secondaryColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
 }
 
 .copy h1 {
@@ -101,29 +105,35 @@ body {
     color: var(--secondaryColor);
     font-weight: 1000;
     font-size: 10rem;
+
 }
 
 .copy span {
-    background-color: var(--secondaryColor);
-    color: var(--primaryColor);
-    padding: 1rem;
-    font-weight: 800;
-    border-radius: 0.5rem;
-    opacity: 0;
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+  padding: 1rem;
+  font-weight: 800;
+  border-radius: 0.5rem;
+  opacity: 0;
 }
 
-.about {
+.navbarContainer {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
     color: var(--secondaryColor);
-    padding-left: 10%;
-    padding-bottom: 20%;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+.logo{
+    cursor: pointer;
 }
 
-.about h2 {
-    color: var(--secondaryColor);
-    font-size: 5rem;
-}
-
-.about p {
-    margin-top: 20px;
-    width: 50%;
-}
+.link {
+    padding-right: 20px;
+    cursor: pointer;
+  }

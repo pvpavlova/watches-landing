@@ -4,13 +4,15 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./InfoPage.module.css";
 import mountain3Img from "./parallax/mountain-3.svg";
 import mountain2Img from "./parallax/mountain-2.svg";
-import mountain1Img from "./parallax/mountain-12.svg";
+import mountain1Img from "./parallax/mountain-1.svg";
 import sunImg from "./parallax/sun.svg";
-import watch from "./parallax/watch2.png";
+import watch from "./parallax/watch.svg";
 import cloudsBottomImg from "./parallax/cloud-bottom.svg";
 import cloudsLeftImg from "./parallax/clouds-left.svg";
 import cloudsRightImg from "./parallax/clouds-right.svg";
 import starsImg from "./parallax/stars.svg";
+import { Link } from "react-router-dom";
+import NavBar from "../../components/NavBar/NavBar";
 
 function InfoPage() {
   const [background, setBackground] = useState(20);
@@ -98,7 +100,7 @@ function InfoPage() {
       tl.to(
         sun.current,
         {
-          y: "+=15vh",
+          y: "+=20vh",
         },
         0
       );
@@ -122,19 +124,47 @@ function InfoPage() {
   }, []);
 
   return (
-    <div className={styles.parallaxOuter}>
+    <div className={styles.parallaxOuter} style={{overflow:"hidden"}}>
       <div
         ref={parallaxRef}
         style={{
-          background: `linear-gradient(#0F2B9C, #673D7D ${background}%, #A74A67, #EDFC54 )`,
+          background: `linear-gradient(#1A1F2E, #2C374B ${background}%, #455567, #7A93B3)` /* `linear-gradient(#0F2B9C, #673D7D ${background}%, #A74A67, #EDFC54 )` */,
         }}
         className={styles.parallax}
       >
+        <div className={styles.navbarContainer}>
+          <div className="navbar-left">
+            <Link to="/">
+              <span className={styles.logo}>X</span>
+            </Link>
+          </div>
+          <div className="navbar-right">
+            <>
+              <Link to="/" className={styles.link}>
+                Отправить эскиз
+              </Link>
+              <Link to="/" className={styles.link}>
+                |
+              </Link>
+              <Link to="/" className={styles.link}>
+                О нас
+              </Link>
+              <Link to="/" className={styles.link}>
+                |
+              </Link>
+              <Link to="/" className={styles.link}>
+                Контакты
+              </Link>
+            </>
+          </div>
+        </div>
         <img ref={mountain3} className={styles.mountain3} src={mountain3Img} />
         <img ref={mountain2} className={styles.mountain2} src={mountain2Img} />
         <img ref={mountain1} className={styles.mountain1} src={mountain1Img} />
         <img ref={sun} className={styles.sun} src={sunImg} />
+
         <img ref={watchMain} className={styles.sun} src={watch} />
+
         <img
           ref={cloudsBottom}
           className={styles.cloudsBottom}
